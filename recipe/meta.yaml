@@ -6,25 +6,25 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/empanada-napari-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/empanada-napari-{{ version }}.tar.gz
   sha256: af01a32f956ddc092bf651f6764f1af474d2ee564df365ba08311506cdbc6a00
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
     - pip
-    - python >=3.7
+    - python {{ python_min }}
     - setuptools-scm
   run:
     - empanada-dl >=0.1.7
     - imagecodecs
     - napari >=0.4.16
     - napari-plugin-engine >=0.1.4
-    - python >=3.7
+    - python >={{ python_min }}
     - scikit-image >=0.19
     - numpy <1.23.0a0
 
@@ -36,6 +36,7 @@ test:
     - pip check || true # Fails due to opencv-python-headless
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/volume-em/empanada-napari
