@@ -1,5 +1,5 @@
 {% set name = "empanada-napari" %}
-{% set version = "0.2.3" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/empanada-napari-{{ version }}.tar.gz
-  sha256: af01a32f956ddc092bf651f6764f1af474d2ee564df365ba08311506cdbc6a00
+  sha256: f4890cb6f20689933e28903dd7d43238aeae32afb53fa225bdf41d4bdcfc2c71
 
 build:
   noarch: python
